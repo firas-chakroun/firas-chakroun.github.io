@@ -130,7 +130,7 @@
                 <!-- Left Side Ends -->
                 <!-- Contact Form Starts -->
                 <div class="col-12 col-lg-8">
-                    <form class="contactform" method="post" action="php/send-email.php">
+                    <form class="contactform" method="post" action="http://slimhamdi.net/tunis/dark/php/process-form.php">
 
                         <div class="contactform">
                             <div class="row">
@@ -161,6 +161,29 @@
         </div>
 
     </section>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("SNxq0XGiYpkmjt3-R");
+        })();
+    </script>
+    <script>
+
+        function sendMail(params) {
+            var templateParams = {
+                from_name: document.getElementById('name').value,
+                from_mail: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+            }
+
+            emailjs.send("service_ln9dxss", "template_efg2er6", templateParams)
+                .then(function (res) {
+                    console.log("succes");
+                    location.reload();
+                })
+        }
+    </script>
+
 
     <!-- Template JS Files -->
 
